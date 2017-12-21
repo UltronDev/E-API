@@ -1,11 +1,14 @@
 <?php
 
+use App\Model\Product;
 use Faker\Generator as Faker;
+use \App\Model\Review;
 
-$factory->define(App\Model\Review::class, function (Faker $faker) {
+
+$factory->define(Review::class, function (Faker $faker) {
     return [
     	'product_id' => function() {
-	    	return \App\Model\Product::all()->random();
+	    	return Product::all()->random();
 	    },
         'customer' => $faker->name(),
 	    'review' => $faker->paragraph(),
